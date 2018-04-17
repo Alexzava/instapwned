@@ -6,7 +6,7 @@ This is a simple PHP script (*written in a night*) to get Instagram **profile pi
 **Alexzava**
 
 ## License
-This project is licensed under the [Apache License 2.0](LICENSE.md).
+This project is licensed under the [Apache License 2.0](LICENSE).
 
 ## Disclaimer
 
