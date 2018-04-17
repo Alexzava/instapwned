@@ -7,20 +7,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style>
 		.propic {
-			border: 1px solid #ddd;
-			border-radius: 3px;
-			padding: 3px;
-			max-width: 100%;
-			height: auto;
-			width: auto;
+		    border: 1px solid #ddd;
+		    border-radius: 3px;
+		    padding: 3px;
+		    max-width: 100%;
+		    height: auto;
+		    width: auto;
 		}
 		.footer {
-		  position: absolute;
-		  bottom: 0;
-		  width: 100%;
-		  height: 60px;
-		  line-height: 60px;
-		  background-color: #f5f5f5;
+		    position: absolute;
+		    bottom: 0;
+		    width: 100%;
+		    height: 60px;
+		    line-height: 60px;
+		    background-color: #f5f5f5;
 		}
 	</style>
 </head>
@@ -37,7 +37,7 @@ if(!isset($_POST['username']) || $_POST['username'] == "")
 				<input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
 			</div>
 			<input type="submit" value="SEARCH" class="btn btn-primary">
-			<small class="text-muted" style="float: right">INSTA PWNED is not affiliated with Instagram™</small>
+			<br><br><small class="text-muted">INSTA PWNED is not affiliated with Instagram™</small>
 		</form></div>
 		';
 		
