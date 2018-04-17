@@ -10,6 +10,9 @@
 			border: 1px solid #ddd;
 			border-radius: 3px;
 			padding: 3px;
+			max-width: 100%;
+			height: auto;
+			width: auto;
 		}
 		.footer {
 		  position: absolute;
@@ -80,7 +83,7 @@ for($i = 0; $i < count($lines); $i++)
 		echo '<b>Username:</b> '.$username.'<br>';
 		//echo 'User ID: '.$userID.'<br>';
 		echo '<b>Full Name:</b> '.$full_name.'<br>';
-		echo '<b>Profile Picture (HD):</b> <a href="'.$profilePic.'">'.$profilePic.'</a><br>';
+		echo '<b>Profile Picture (HD):</b> <a href="'.$profilePic.'">OPEN</a><br>';
 		echo '<b>Biography:</b> '.$bio.'<br>';
 		echo '<b>Follower:</b> '.$follower.'<br>';
 		echo '<b>Following:</b> '.$following.'<br>';
