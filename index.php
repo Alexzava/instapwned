@@ -53,55 +53,47 @@ if(!isset($_POST['username']) || $_POST['username'] == "")
 
 $html = file_get_contents('https://instagram.com/'.$_POST['username']);
 
-$lines = explode(">", $html);
+//Get user ID
+$subData = substr($html, strpos($html, 'window._sharedData'), strpos($html, '};', $startPos));
+$userID = strstr($subData, '"id":"');
+$userID = str_replace('"id":"', '', $userID);
+$userID = strstr($userID, '"', true);
 
-for($i = 0; $i < count($lines); $i++)
-{
-	if (strpos($lines[$i], 'window._sharedData') !== false) 
-	{
-		//Get user ID
-		$userID = strstr($lines[$i], '"id":"');
-		$userID = str_replace('"id":"', '', $userID);
-		$userID = strstr($userID, '"', true);
-		
-		//Download user info
-		$jsonData = file_get_contents('https://i.instagram.com/api/v1/users/'.$userID.'/info/');
-		$decodedInfo = json_decode($jsonData);
-		
-		$username = $decodedInfo->user->username;
-		$profilePic = $decodedInfo->user->hd_profile_pic_url_info->url;
-		$follower = $decodedInfo->user->follower_count;
-		$following = $decodedInfo->user->following_count;
-		$full_name = $decodedInfo->user->full_name;
-		$isPrivate = $decodedInfo->user->is_private;
-		$isVerified = $decodedInfo->user->is_verified;
-		$bio = $decodedInfo->user->biography;
-		
-		//Print info
-		echo '<br><a href="index.php" class="btn btn-primary">BACK</a><br><br>';
-		
-		echo '<b>Username:</b> '.$username.'<br>';
-		//echo 'User ID: '.$userID.'<br>';
-		echo '<b>Full Name:</b> '.$full_name.'<br>';
-		echo '<b>Profile Picture (HD):</b> <a href="'.$profilePic.'">OPEN</a><br>';
-		echo '<b>Biography:</b> '.$bio.'<br>';
-		echo '<b>Follower:</b> '.$follower.'<br>';
-		echo '<b>Following:</b> '.$following.'<br>';
-		if($isPrivate)
-			echo '<b>Private Profile:</b> SI<br>';
-		else
-			echo '<b>Private Profile:</b> NO<br>';
-		
-		if($isVerified)
-			echo '<b>Verified:</b> SI<br>';
-		else
-			echo '<b>Verified:</b> NO<br><br>';
-		
-		echo '<img class="propic" src="'.$profilePic.'"/><br><br>';
-		
-		break;
-	}
-}	
+//Download user info
+$jsonData = file_get_contents('https://i.instagram.com/api/v1/users/'.$userID.'/info/');
+$decodedInfo = json_decode($jsonData);
+
+$username = $decodedInfo->user->username;
+$profilePic = $decodedInfo->user->hd_profile_pic_url_info->url;
+$follower = $decodedInfo->user->follower_count;
+$following = $decodedInfo->user->following_count;
+$full_name = $decodedInfo->user->full_name;
+$isPrivate = $decodedInfo->user->is_private;
+$isVerified = $decodedInfo->user->is_verified;
+$bio = $decodedInfo->user->biography;
+
+//Print info
+echo '<br><a href="index.php" class="btn btn-primary">BACK</a><br><br>';
+
+echo '<b>Username:</b> '.$username.'<br>';
+//echo 'User ID: '.$userID.'<br>';
+echo '<b>Full Name:</b> '.$full_name.'<br>';
+echo '<b>Profile Picture (HD):</b> <a href="'.$profilePic.'">OPEN</a><br>';
+echo '<b>Biography:</b> '.$bio.'<br>';
+echo '<b>Follower:</b> '.$follower.'<br>';
+echo '<b>Following:</b> '.$following.'<br>';
+if($isPrivate)
+	echo '<b>Private Profile:</b> SI<br>';
+else
+	echo '<b>Private Profile:</b> NO<br>';
+
+if($isVerified)
+	echo '<b>Verified:</b> SI<br>';
+else
+	echo '<b>Verified:</b> NO<br><br>';
+
+echo '<img class="propic" src="'.$profilePic.'"/><br><br>';
+
 ?>
 </div>
 </body>
