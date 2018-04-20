@@ -83,14 +83,14 @@ echo '<b>Biography:</b> '.$bio.'<br>';
 echo '<b>Follower:</b> '.$follower.'<br>';
 echo '<b>Following:</b> '.$following.'<br>';
 if($isPrivate)
-	echo '<b>Private Profile:</b> SI<br>';
+	echo '<b>Private Profile:</b> TRUE<br>';
 else
-	echo '<b>Private Profile:</b> NO<br>';
+	echo '<b>Private Profile:</b> FALSE<br>';
 
 if($isVerified)
-	echo '<b>Verified:</b> SI<br>';
+	echo '<b>Verified:</b> TRUE<br>';
 else
-	echo '<b>Verified:</b> NO<br><br>';
+	echo '<b>Verified:</b> FALSE<br><br>';
 
 echo '<img class="propic" src="'.$profilePic.'"/><br><br>';
 
