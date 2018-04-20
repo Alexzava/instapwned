@@ -54,7 +54,7 @@ if(!isset($_POST['username']) || $_POST['username'] == "")
 $html = file_get_contents('https://instagram.com/'.$_POST['username']);
 
 //Get user ID
-$subData = substr($html, strpos($html, 'window._sharedData'), strpos($html, '};', $startPos));
+$subData = substr($html, strpos($html, 'window._sharedData'), strpos($html, '};'));
 $userID = strstr($subData, '"id":"');
 $userID = str_replace('"id":"', '', $userID);
 $userID = strstr($userID, '"', true);
