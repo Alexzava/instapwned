@@ -1,5 +1,7 @@
 # INSTA PWNED
 
+(**This script is no longer working**)
+
 This is a simple PHP script (*written in a night*) to get Instagram **profile picture** at **full size** and other user info.
 
 ## Authors
